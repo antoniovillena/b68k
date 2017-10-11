@@ -12,7 +12,7 @@ copyby: move.b  -(a0), -(a1)
 mainle: bsr.s   getbit
         bcc.s   copyby
 
-mainco: moveq   #1, d1
+        moveq   #1, d1
         moveq   #0, d3
         bra.s   skip
 lenval: bsr.s   getbit

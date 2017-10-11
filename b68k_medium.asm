@@ -15,15 +15,11 @@ GETBIT macro
 loop\@ 
         endm
 
-offend: moveq   #0, d2
-        GETBIT
+offend: moveq   #$10, d2
+nexbit: GETBIT
         addx.b  d2, d2
-        GETBIT
-        addx.b  d2, d2
-        GETBIT
-        addx.b  d2, d2
-        GETBIT
-        roxl.w  #8, d2
+        bcc.s   nexbit
+        lsl.w   #7, d2
         add     d3, d2
         lea     1(a1, d2), a2
         lsr     #1, d1
@@ -38,7 +34,7 @@ copyby: move.b  -(a0), -(a1)
 mainle: GETBIT
         bcc.s   copyby
 
-mainco: moveq   #1, d1
+        moveq   #1, d1
         GETBIT
         bcs.s   contie
 lenval: GETBIT
@@ -56,6 +52,7 @@ contie: move.b  -(a0), d3
         move.b  -(a2), -(a1)
         bra.s   mainle
 
+return: rts
 comp1:  beq.s   return
         lsr     #1, d1
         bcs.s   bucla3
