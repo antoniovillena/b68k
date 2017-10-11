@@ -1,3 +1,12 @@
+; -----------------------------------------------------------------------------
+; B68K by Einar Saukas, Antonio Villena. With suggestions of Leander
+; Based on http://www.worldofspectrum.org/infoseekid.cgi?id=0027996
+; "Fast" version (264 bytes only)
+; -----------------------------------------------------------------------------
+; Parameters:
+;   A0: end of source address (compressed data)
+;   A1: end of destination address (decompressing)
+; -----------------------------------------------------------------------------
 GETBIT macro
         add.b   d0, d0
         bne.s   loop\@
