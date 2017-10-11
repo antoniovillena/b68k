@@ -1,7 +1,7 @@
 ; -----------------------------------------------------------------------------
 ; B68K by Einar Saukas, Antonio Villena. With suggestions of Leander
 ; Based on http://www.worldofspectrum.org/infoseekid.cgi?id=0027996
-; "Slow" version (62 bytes only)
+; "Slow" version (60 bytes only)
 ; -----------------------------------------------------------------------------
 ; Parameters:
 ;   A0: end of source address (compressed data)
@@ -16,7 +16,8 @@ mainco: moveq   #1, d1
         moveq   #0, d3
         bra.s   skip
 lenval: bsr.s   getbit
-        addx.w  d1, d1
+        roxl.w  #1, d1
+        beq.s   return
 skip:   bsr.s   getbit
         bcc.s   lenval
         move.b  -(a0), d3
@@ -30,8 +31,6 @@ nexbit: bsr.s   getbit
         add     d2, d3
 
 offend: lea     1(a1, d3), a2
-        tst     d1
-        beq.s   return
 bucla:  move.b  -(a2), -(a1)
         dbra    d1, bucla
         bra.s   mainle
