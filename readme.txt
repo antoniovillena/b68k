@@ -10,6 +10,6 @@ There are 3 version of decrunchers. I put the cycles decrounching a small file b
 reference.
 
         Length      Cycles
-slow    60 bytes    154354
+slow    58 bytes    162328
 medium  154 bytes   87746
 fast    264 bytes   80962
