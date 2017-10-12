@@ -233,9 +233,7 @@ unsigned char *compress(Optimal *optimal, unsigned char *input_data, size_t inpu
 
   /* end mark */
   write_bit(1);
-
   write_elias_gamma(0x10000);
-  printf("%d", elias_gamma_bits(0x10000));
   return output_data;
 }
 

@@ -7,7 +7,7 @@
 ;   A0: end of source address (compressed data)
 ;   A1: end of destination address (decompressing)
 ; -----------------------------------------------------------------------------
-b68k:   moveq   #$80, d0
+b68k:   moveq   #-128, d0
 copyby: move.b  -(a0), -(a1)
 mainle: bsr.s   getbit
         bcc.s   copyby

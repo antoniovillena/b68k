@@ -11,5 +11,5 @@ reference.
 
         Length      Cycles
 slow    58 bytes    162328
-medium  126 bytes   90766
+medium  128 bytes   90766
 fast    264 bytes   80962

@@ -1,7 +1,7 @@
 ; -----------------------------------------------------------------------------
 ; B68K by Einar Saukas, Antonio Villena. With suggestions of Leander
 ; Based on http://www.worldofspectrum.org/infoseekid.cgi?id=0027996
-; "Medium" version (154 bytes only)
+; "Medium" version (128 bytes only)
 ; -----------------------------------------------------------------------------
 ; Parameters:
 ;   A0: end of source address (compressed data)
@@ -29,7 +29,7 @@ nexbit: GETBIT
         move.b  -(a2), -(a1)
         bra.s   mainle
 
-b68k:   moveq   #$80, d0
+b68k:   moveq   #-128, d0
 copyby: move.b  -(a0), -(a1)
 mainle: GETBIT
         bcc.s   copyby

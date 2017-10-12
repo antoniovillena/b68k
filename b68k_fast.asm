@@ -33,7 +33,7 @@ offene: moveq   #0, d2
         move.b  -(a2), -(a1)
         bra.s   mainlo
 
-b68k:   moveq   #$80, d0
+b68k:   moveq   #-128, d0
 copybe: move.b  -(a0), -(a1)
 mainle: add.b   d0, d0
         beq.s   lb1
@@ -73,8 +73,6 @@ bucla1: move.b  -(a2), -(a1)
         dbra    d1, bucla4
         bra.s   mainlo
 
-return: rts
-
 lb1:    move.b  -(a0), d0
         addx.b  d0, d0
         bcc     copybo
@@ -97,6 +95,7 @@ contio: move.b  -(a0), d3
         move.b  -(a2), -(a1)
         bra     mainle
 
+return: rts
 comp1o: beq.s   return
         lsr     #1, d1
         bcs.s   buclo3
