@@ -13,3 +13,7 @@ reference.
 slow    58 bytes    162328
 medium  128 bytes   90766
 fast    264 bytes   80962
+
+Created by Antonio José Villena Godoy, 2017
+Creative Commons Licensed by SA
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
